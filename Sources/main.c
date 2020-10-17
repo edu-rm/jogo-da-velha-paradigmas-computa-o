@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdio.h>
+#include <stdlib.h>
 
 char tabuleiro[3][3];
 char jogador1[40], jogador2[40];
