@@ -25,7 +25,7 @@ int eValido(char letra)
     return 0;
 }
 
-int cordenadaValida(int x, int y)
+int coordenadaValida(int x, int y)
 {
     if (x >= 0 && x < 3)
     {
