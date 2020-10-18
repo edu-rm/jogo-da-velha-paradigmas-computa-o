@@ -46,26 +46,27 @@ int isEmpty(int x, int y)
     return 0;
 }
 
-int ganhouLinhas()
-{
+int ganhouLinhas(){
     int i, j, igual = 1;
     for (i = 0; i < 3; i++)
     {
         for (j = 0; j < 2; j++)
         {
-            if (eValido(tabuleiro[i][j] && tabuleiro[i][j] == tabuleiro[i][j + 1]))
+            if (eValido(tabuleiro[i][j]) && tabuleiro[i][j] == tabuleiro[i][j + 1])
             {
                 igual++;
             }
-            if (igual == 3)
-            {
-                return 1;
-            }
-            igual = 1;
         }
+        if (igual == 3)
+        {
+            return 1;
+        }
+        igual = 1;
     }
     return 0;
 }
+
+
 
 int ganhouColunas()
 {
@@ -74,16 +75,15 @@ int ganhouColunas()
     {
         for (j = 0; j < 2; j++)
         {
-            if (eValido(tabuleiro[j][i] && tabuleiro[j][i] == tabuleiro[j + 1][i]))
-            {
+            if (eValido(tabuleiro[j][i]) && tabuleiro[j][i] == tabuleiro[j + 1][i]){
                 igual++;
             }
-            if (igual == 3)
-            {
-                return 1;
-            }
-            igual = 1;
         }
+        if (igual == 3)
+        {
+            return 1;
+        }
+        igual = 1;
     }
     return 0;
 }
@@ -92,10 +92,8 @@ int ganhouDiagonalPrincipal()
 {
     int i, igual = 1;
 
-    for (i = 0; i < 2; i++)
-    {
-        if (eValido(tabuleiro[i][i] && tabuleiro[i][i] == tabuleiro[i + 1][i + 1]))
-        {
+     for(i = 0; i < 2; i++) {
+        if(eValido(tabuleiro[i][i]) && tabuleiro[i][i] == tabuleiro[i+1][i+1]){
             igual++;
         }
     }
@@ -103,7 +101,10 @@ int ganhouDiagonalPrincipal()
     {
         return 1;
     }
-    return 0;
+    else
+    {
+        return 0;
+    }
 }
 
 int ganhouDiagonalSecundaria()
