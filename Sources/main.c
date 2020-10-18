@@ -111,22 +111,24 @@ int ganhouDiagonalPrincipal()
     }
 }
 
-int ganhouDiagonalSecundaria()
+int ganhouDiagonalSecundaria() 
 {
     int i, igual = 1;
-
-    for (i = 0; i < 2; i++)
-    {
-        if (eValido(tabuleiro[i][3 - i - 1] && tabuleiro[i][3 - i - 1] == tabuleiro[i + i][3 - i - 2]))
-        {
-            igual++;
-        }
+    for(i = 0; i < 2; i++) {
+        if(eValido(tabuleiro[i][3-i-1]) && tabuleiro[i][3-i-1] == tabuleiro[i+1][3-i-2])
+		{
+        	igual++;
+		}     
     }
-    if (igual == 3)
-    {
-        return 1;
-    }
-    return 0;
+    if(igual == 3)
+	{
+    	return 1;
+	} 
+    else
+	{
+      return 0;	
+	}
+    
 }
 
 //Funcao responsavel por imprimir a matriz que representará o jogo da velha (tabuleiro)
