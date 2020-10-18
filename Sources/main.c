@@ -1,6 +1,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/*
+    Alunos: Icaro Peretti e Eduardo Rampon
+*/
+
 char tabuleiro[3][3];
 char jogador1[40], jogador2[40];
 
