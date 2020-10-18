@@ -204,11 +204,11 @@ void realizarJogada()
         //Como o contador do jogador chegara ate 3, o verifi-1 anula essa possibilidade
         if (verifJogador - 1 != 0)
         {
-            printf("Parabens! Voce venceu %s", jogador1);
+            printf("Parabens voce venceu %s", jogador1);
         }
         else
         {
-            printf("Parabens! Voce venceu %s", jogador2);
+            printf("Parabens  voce venceu %s", jogador2);
         }
     }
 }
