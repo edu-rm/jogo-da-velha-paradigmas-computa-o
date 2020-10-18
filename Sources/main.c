@@ -153,13 +153,13 @@ void realizarJogada()
 {
     int x, y;
     int validaCoord = 0;
-    int verifJogador = 1;
+    int verifJogador = 0;
     int venceu = 0;
     int contJog = 0;
 
     //Enquanto ela for diferente de 2, significa que a posicao estavazia
     //portanto pode realizar a jogada.
-    do
+    while (venceu == 0 && contJog < 9)
     {
         do
         {
@@ -176,7 +176,7 @@ void realizarJogada()
         } while (validaCoord != 2);
         //Verifica qual jogador está jogando
         //Se for o jogador 1 insere o X se nao insere o 0
-        if (verifJogador == 1)
+        if (verifJogador % 2 == 0)
         {
             tabuleiro[x][y] = 'x';
         }
@@ -184,19 +184,15 @@ void realizarJogada()
         {
             tabuleiro[x][y] = '0';
         }
+        verifJogador++;
         contJog++;      //Contador para o numero de jogadas
-        verifJogador++; //Passa a vez do jogador
-        //Joga novamente para o jogador 1, ja que tem apenas 2 jogadores
-        if (verifJogador == 3)
-        {
-            verifJogador = 1;
-        }
+        printf("Passei aqui\n");
         //Verifica em qual das possibilidades o jogador venceu
         venceu += ganhouLinhas();
         venceu += ganhouColunas();
         venceu += ganhouDiagonalPrincipal();
         venceu += ganhouDiagonalSecundaria();
-    } while (venceu == 0 && contJog < 9); //Executa o codigo ate que algum jogador ganhe ou o numero de jogadas seja esgotado
+    } //Executa o codigo ate que algum jogador ganhe ou o numero de jogadas seja esgotado
 
     if (venceu != 0)
     {
