@@ -43,4 +43,4 @@ while letraExiste == False:
 
 print("A palavra era", palavra)
 
-input("Digite qualque tecla para encerrar:")
+input("Digite qualquer tecla para encerrar:")
