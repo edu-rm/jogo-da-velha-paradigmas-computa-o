@@ -1,8 +1,11 @@
 #Alunos: Icaro Peretti e Eduardo Rampon
 import os
+
 #Pede para o usário digitar uma palavra
 palavra = str(input("Digite a palavra secreta:")).upper() #upper para que seja sempre letras maiusculas
+
 list(palavra) #transforma a string em uma lista para que separe letra por letra,ex: ["A","B"]
+
 os.system("cls") #Limpar o console para que a palavra secreta não fique aparecendo na tela
 
 #Pede para o usuário dar uma dica, do que a palavra se trata
@@ -37,3 +40,7 @@ while letraExiste == False:
     for j in range(0,len(letrasDescobertas)):
         if letrasDescobertas[j] == "-" :
             letraExiste = False
+
+print("A palavra era", palavra)
+
+input("Digite qualque tecla para encerrar:")
