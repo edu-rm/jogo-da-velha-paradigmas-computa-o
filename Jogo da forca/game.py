@@ -1,3 +1,4 @@
+#Alunos: Icaro Peretti e Eduardo Rampon
 import os
 #Pede para o usário digitar uma palavra
 palavra = str(input("Digite a palavra secreta:")).upper() #upper para que seja sempre letras maiusculas
@@ -20,7 +21,9 @@ letraExiste = False #inicia as letras existentes como falsa
 #Enquanto a palavra nao estiver completa,continua pedindo para o usuario digitar
 while letraExiste == False:
     letra = str(input("Digite uma letra: ")).upper() #upper para que seja sempre letras maiusculas
-
+    #Avisa para o usuario digitar apenas uma letra por vez
+    if (len(letra) > 1):
+        print("Digte apenas uma letra por vez!\n")
     #Percorre a palavra a ser formada e verifica se a letra digitada faz parte
     for i in range(0,len(palavra)): 
         if letra == palavra[i] : 
