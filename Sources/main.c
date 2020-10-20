@@ -193,6 +193,7 @@ void realizarJogada()
         verifJogador++;
         contJog++;      //Contador para o numero de jogadas
         printf("Passei aqui\n");
+
         //Verifica em qual das possibilidades o jogador venceu
         venceu += ganhouLinhas();
         venceu += ganhouColunas();
@@ -203,27 +204,39 @@ void realizarJogada()
     if (venceu != 0)
     {
         //Verifica qual o foi o jogador que venceu.
-        //Como o contador do jogador chegara ate 3, o verifi-1 anula essa possibilidade
-        if (verifJogador - 1 != 0)
+        //Se o resto da divisão do numero do jogador for = 1 significa que o primeiro jogador vence, se não foi o segundo
+        if (verifJogador % 2 == 1)
         {
             printf("Parabens voce venceu %s", jogador1);
         }
         else
         {
-            printf("Parabens  voce venceu %s", jogador2);
+            printf("Parabens voce venceu %s", jogador2);
         }
     }
 }
 
-int main()
-{
 
+int main()
+{   
+    int op;
     printf("Primeiro jogador, digite seu nome:");
     fgets(jogador1, 40, stdin);
     printf("Segundo jogador, digite seu nome:");
     fgets(jogador2, 40, stdin);
-
+    
     realizarJogada();
 
+    printf("Deseja jogar novamente?\n1 - Sim\n2 - Nao\n");
+    scanf("%d",&op);
+        
+    if(op == 1){
+        realizarJogada();
+    }else{
+        printf("Finalizando...");
+        exit(0);
+    }
+    
+    system("PAUSE");
     return 0;
 }
