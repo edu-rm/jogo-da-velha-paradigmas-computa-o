@@ -227,16 +227,17 @@ int main()
     
     realizarJogada();
 
+    //Pergunta se o usuario quer jogar novamente
     printf("Deseja jogar novamente?\n1 - Sim\n2 - Nao\n");
     scanf("%d",&op);
-        
+    
+    //Se a resposta for 1, o jogo inicia novamente
+    //Se não finaliza o programa
     if(op == 1){
         realizarJogada();
     }else{
         printf("Finalizando...");
         exit(0);
     }
-    
-    system("PAUSE");
     return 0;
 }
