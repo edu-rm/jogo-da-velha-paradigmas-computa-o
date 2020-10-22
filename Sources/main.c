@@ -5,8 +5,13 @@
     Alunos: Icaro Peretti e Eduardo Rampon
 */
 
+// Declaração de todas as váriaveis de escopo global.
+
 char tabuleiro[3][3];
 char jogador1[40], jogador2[40];
+
+//Funcao responsavel por criar a matriz e colocar * em todas as posições
+// O "*" representará um espaço que ainda não foi jogado
 
 void createMatrix()
 {
@@ -20,8 +25,10 @@ void createMatrix()
     }
 }
 
+//Valida se a entrada são caracteres válidos ( X ou 0)
 int eValido(char letra)
 {
+//Retorna 1 se a entrada é X ou 0
     if (letra == 'x' || letra == '0')
     {
         return 1;
@@ -29,6 +36,7 @@ int eValido(char letra)
     return 0;
 }
 
+//Funcao responsavel por verificar se a coordenada solicitada é valida, ou seja, está nos limites da matriz.
 int coordenadaValida(int x, int y)
 {
     if (x >= 0 && x < 3)
@@ -41,8 +49,10 @@ int coordenadaValida(int x, int y)
     return 0;
 }
 
+//Funcao responsavel por verificar se a coordenada ainda não foi jogada.
 int isEmpty(int x, int y)
 {
+    //Retorna 1 se foi encontrado X ou 0 na posição solicitada
     if (tabuleiro[x][y] != 'x' && tabuleiro[x][y] != '0')
     {
         return 1;
@@ -50,8 +60,10 @@ int isEmpty(int x, int y)
     return 0;
 }
 
+//Funcao responsavel por verificar se alguém ganhou nas linhas.
 int ganhouLinhas(){
     int i, j, igual = 1;
+    //Passa por todas as linhas e verifica se existe uma em que tem um caractere válido 3 vezes seguidas
     for (i = 0; i < 3; i++)
     {
         for (j = 0; j < 2; j++)
@@ -70,11 +82,11 @@ int ganhouLinhas(){
     return 0;
 }
 
-
-
+//Funcao responsavel por verificar se alguém ganhou nas colunas.
 int ganhouColunas()
 {
     int i, j, igual = 1;
+    //Percorre por todas as colunas e verifica se possui uma em que aparece um caractere válido seguido por 3 vezes
     for (i = 0; i < 3; i++)
     {
         for (j = 0; j < 2; j++)
@@ -92,10 +104,11 @@ int ganhouColunas()
     return 0;
 }
 
+//Funcao responsavel por verificar se alguém ganhou na diagonal principal.
 int ganhouDiagonalPrincipal()
 {
     int i, igual = 1;
-
+    // Percorre a diagonal pricipal e depois verifica se foram encontrado 3 caracteres iguais.
      for(i = 0; i < 2; i++) {
         if(eValido(tabuleiro[i][i]) && tabuleiro[i][i] == tabuleiro[i+1][i+1]){
             igual++;
@@ -111,9 +124,11 @@ int ganhouDiagonalPrincipal()
     }
 }
 
+//Funcao responsavel por verificar se alguém ganhou na diagonal secundária.
 int ganhouDiagonalSecundaria() 
 {
     int i, igual = 1;
+    // Percorre a diagonal secundária e depois verifica se foram encontrado 3 caracteres iguais.
     for(i = 0; i < 2; i++) {
         if(eValido(tabuleiro[i][3-i-1]) && tabuleiro[i][3-i-1] == tabuleiro[i+1][3-i-2])
 		{
