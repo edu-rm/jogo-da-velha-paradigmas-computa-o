@@ -234,20 +234,23 @@ void realizarJogada()
 
 int main()
 {   
-    int op;
-    printf("Primeiro jogador, digite seu nome:");
-    fgets(jogador1, 40, stdin);
+    int op; //Variavel para verificar se os jogadores querem jogar novamente
+	
+    //Pedindo para os jogadores inserirem seus nomes para iniciar o jogo	
+    printf("Primeiro jogador, digite seu nome:"); 
+    fgets(jogador1, 40, stdin); //Pegando o nome digitado
     printf("Segundo jogador, digite seu nome:");
-    fgets(jogador2, 40, stdin);
+    fgets(jogador2, 40, stdin); //Pegando o nome digitado
     
+    //Chamando a função que realiza as jogadas
     realizarJogada();
 
     //Pergunta se o usuario quer jogar novamente
     printf("Deseja jogar novamente?\n1 - Sim\n2 - Nao\n");
-    scanf("%d",&op);
+    scanf("%d",&op); //Captura a opção digitada
     
     //Se a resposta for 1, o jogo inicia novamente
-    //Se não finaliza o programa
+    //Se não o rograma é finalizado
     if(op == 1){
         realizarJogada();
     }else{
